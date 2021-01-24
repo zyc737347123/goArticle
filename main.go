@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
-	"net/http"
+	"github.com/zyc737347123/goArticle/routes"
 )
 
 var router *gin.Engine
@@ -19,21 +19,7 @@ func main() {
 	// Define the route for the index page and display the index.html template
 	// To start with, we'll use an inline route handler. Later on, we'll create
 	// standalone functions that will be used as route handlers.
-	router.GET("/", func(c *gin.Context) {
-
-		// Call the HTML method of the Context to render a template
-		c.HTML(
-			// Set the HTTP status to 200 (OK)
-			http.StatusOK,
-			// Use the index.html template
-			"index.html",
-			// Pass the data that the page uses (in this case, 'title')
-			gin.H{
-				"title": "Home Page",
-			},
-		)
-
-	})
+	routes.InitializeRoutes(router)
 
 	// Start serving the application
 	_ = router.Run()
