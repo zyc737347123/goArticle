@@ -1,11 +1,11 @@
-package routes
+package main
 
 import (
 	"github.com/gin-gonic/gin"
 	"net/http"
 )
 
-func InitializeRoutes(router *gin.Engine) {
+func initializeRoutes(router *gin.Engine) {
 	// Handle the index route
 	router.GET("/", showIndexPage)
 }
